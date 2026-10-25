@@ -38,7 +38,7 @@ export default function Header({ lang, dict }: { lang: Lang; dict: Dictionary })
             <button className={s.iconBtn} onClick={toggle} aria-label={dict.theme.toggle} title={dict.theme.toggle}>
               {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
             </button>
-            <a className={s.iconBtn} href="https://github.com/Regestea/readlynx" target="_blank" rel="noreferrer" aria-label="GitHub">
+            <a className={s.iconBtn} href="https://github.com/Regestea/readlynx-app" target="_blank" rel="noreferrer" aria-label="GitHub">
               <Github size={17} />
             </a>
             <a className={s.cta} href="#download">
