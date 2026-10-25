@@ -26,8 +26,8 @@ jobs:
       - run: npm ci
       - run: npm run build
         env:
-          # Project-page hosting (…github.io/readlynx).
-          NEXT_PUBLIC_BASE_PATH: /readlynx
+          # Project-page hosting (…github.io/readlynx-web).
+          NEXT_PUBLIC_BASE_PATH: /readlynx-web
           NEXT_PUBLIC_SITE_URL: https://regestea.github.io
       - run: touch ./out/.nojekyll
       - uses: actions/upload-pages-artifact@v3

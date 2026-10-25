@@ -18,8 +18,8 @@ export type LatestRelease = {
   all: ReleaseAsset[];
 };
 
-const APP_REPO = "https://github.com/Regestea/readlynx-app";
-const API_LATEST = "https://api.github.com/repos/Regestea/readlynx-app/releases/latest";
+const APP_REPO = "https://github.com/Regestea/readlynx";
+const API_LATEST = "https://api.github.com/repos/Regestea/readlynx/releases/latest";
 
 function pick(assets: ReleaseAsset[], pred: (n: string) => boolean): ReleaseAsset | undefined {
   return assets.find((a) => pred(a.name.toLowerCase()));
