@@ -27,8 +27,8 @@ jobs:
       - run: npm run build
         env:
           # Project-page hosting (…github.io/readlynx-website).
-          # If this repo moves to org-root hosting (readlynx-books.github.io),
-          # set NEXT_PUBLIC_BASE_PATH to "" and update NEXT_PUBLIC_SITE_URL.
+          # If this repo is renamed to "readlynx" (needs the app repo renamed
+          # first), set NEXT_PUBLIC_BASE_PATH to /readlynx instead.
           NEXT_PUBLIC_BASE_PATH: /readlynx-website
           NEXT_PUBLIC_SITE_URL: https://regestea.github.io
       - run: touch ./out/.nojekyll

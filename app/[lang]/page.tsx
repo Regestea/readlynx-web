@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Header from "../../components/Header";
 import { Hero, Download, Features, Modes, Guide, Faq, Donate, Footer } from "../../components/Sections";
 import TutorialBanner from "../../components/TutorialBanner";
-import { LANGS, type Lang } from "../../lib/site";
+import { LANGS, type Lang, siteUrl } from "../../lib/site";
 import { getDict } from "../../dictionaries";
 import s from "../../components/site.module.css";
 
@@ -13,7 +13,23 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;
   const dict = getDict(lang === "fa" ? "fa" : "en");
-  return { title: dict.meta.title, description: dict.meta.description };
+  const canonical = siteUrl(`/${lang}/`);
+  return {
+    title: dict.meta.title,
+    description: dict.meta.description,
+    alternates: {
+      canonical,
+      languages: { en: siteUrl("/en/"), fa: siteUrl("/fa/") },
+    },
+    openGraph: {
+      title: dict.meta.title,
+      description: dict.meta.description,
+      url: canonical,
+      siteName: "ReadLynx",
+      type: "website",
+      images: [siteUrl("/readlynx-total-poster.jpg")],
+    },
+  };
 }
 
 export default async function LangPage({ params }: { params: Promise<{ lang: string }> }) {

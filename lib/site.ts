@@ -15,6 +15,12 @@ export type Lang = "en" | "fa";
 export const LANGS: Lang[] = ["en", "fa"];
 export const DEFAULT_LANG: Lang = "en";
 
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://regestea.github.io";
+
+export function siteUrl(path: string): string {
+  return `${SITE_URL}${withBase(path)}`;
+}
+
 export function basePath(): string {
   return process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 }

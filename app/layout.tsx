@@ -3,8 +3,10 @@ import "../styles/tokens.css";
 import "../styles/globals.css";
 import ThemeProvider from "../components/ThemeProvider";
 import Background from "../components/Background";
+import { siteUrl } from "../lib/site";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl("/")),
   title: "ReadLynx — Read anything. Translate everything.",
   description:
     "ReadLynx is a desktop reading + translation studio for PDF, EPUB and Markdown. Download for Windows, macOS and Linux.",
