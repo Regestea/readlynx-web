@@ -26,11 +26,11 @@ jobs:
       - run: npm ci
       - run: npm run build
         env:
-          # For project-page hosting (…github.io/readlynx-website) set:
-          # NEXT_PUBLIC_BASE_PATH: /readlynx-website
-          # For org-root hosting (readlynx-books.github.io) leave empty:
-          NEXT_PUBLIC_BASE_PATH: ""
-          NEXT_PUBLIC_SITE_URL: https://readlynx-books.github.io
+          # Project-page hosting (…github.io/readlynx-website).
+          # If this repo moves to org-root hosting (readlynx-books.github.io),
+          # set NEXT_PUBLIC_BASE_PATH to "" and update NEXT_PUBLIC_SITE_URL.
+          NEXT_PUBLIC_BASE_PATH: /readlynx-website
+          NEXT_PUBLIC_SITE_URL: https://regestea.github.io
       - run: touch ./out/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
