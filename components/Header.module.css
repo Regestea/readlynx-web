@@ -1,0 +1,107 @@
+.header {
+  position: sticky;
+  top: 12px;
+  z-index: var(--z-header);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 10px 12px 10px 16px;
+  border-radius: var(--radius-pill);
+  background: var(--color-glass);
+  border: 1px solid var(--color-border);
+  backdrop-filter: blur(var(--blur-glass));
+  box-shadow: var(--shadow-sm);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+}
+
+.brand img {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+}
+
+.links {
+  display: flex;
+  gap: 4px;
+  margin-inline-start: auto;
+}
+
+.links a {
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  padding: 8px 12px;
+  border-radius: var(--radius-pill);
+}
+
+.links a:hover {
+  background: var(--color-active);
+  color: var(--color-text);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.iconBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-card);
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.langSeg {
+  display: flex;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  background: var(--color-card);
+}
+
+.langSeg a {
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  padding: 8px 14px;
+  color: var(--color-text-secondary);
+}
+
+.langSeg a[data-active="true"] {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.cta {
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  padding: 9px 18px;
+  border-radius: var(--radius-pill);
+}
+
+@media (max-width: 860px) {
+  .links { display: none; }
+  .cta { display: none; }
+}
