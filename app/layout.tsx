@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   description:
     "ReadLynx is a desktop reading + translation studio for PDF, EPUB and Markdown. Download for Windows, macOS and Linux.",
   icons: { icon: "./app-icon.png" },
+  verification: {
+    google: "oxin0bp4IQ49Dr7W2iP1QzuWNeLwEvFwRIJvYimTdb4",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
