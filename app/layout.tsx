@@ -10,7 +10,15 @@ export const metadata: Metadata = {
   title: "Translate PDF & EPUB Books with AI — ReadLynx Free App",
   description:
     "Free desktop app to translate PDF, EPUB and Markdown books with AI — keeps the original layout, local OCR for scans, 77 languages. Windows, macOS & Linux.",
-  icons: { icon: withBase("/app-icon.png") },
+  icons: {
+    icon: [
+      { url: withBase("/favicon-32.png"), sizes: "32x32", type: "image/png" },
+      { url: withBase("/icon-192.png"), sizes: "192x192", type: "image/png" },
+      { url: withBase("/icon-512.png"), sizes: "512x512", type: "image/png" },
+    ],
+    shortcut: withBase("/favicon-32.png"),
+    apple: withBase("/apple-touch-icon.png"),
+  },
   verification: {
     google: "oxin0bp4IQ49Dr7W2iP1QzuWNeLwEvFwRIJvYimTdb4",
   },

@@ -16,7 +16,7 @@ export default function Header({ lang, dict }: { lang: Lang; dict: Dictionary })
         <div className={s.bar}>
           <Link className={s.brand} href={`/${lang}`}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={withBase("/app-icon.png")} alt="ReadLynx" width={32} height={32} />
+            <img src={withBase("/icon-192.png")} alt="ReadLynx" width={32} height={32} />
             <span>ReadLynx</span>
           </Link>
           <nav className={s.links}>

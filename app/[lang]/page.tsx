@@ -74,7 +74,7 @@ export default async function LangPage({ params }: { params: Promise<{ lang: str
         description: dict.meta.description,
         url: siteUrl(`/${lang}/`),
         downloadUrl: `${SITE.appRepo}/releases/latest`,
-        image: [siteUrl("/app-icon.png"), siteUrl("/readlynx-total-poster.jpg")],
+        image: [siteUrl("/icon-512.png"), siteUrl("/readlynx-total-poster.jpg")],
         screenshot: siteUrl("/readlynx-total-poster.jpg"),
         featureList: dict.features.cards.map((c) => c.title),
         keywords: fa
