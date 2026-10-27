@@ -37,7 +37,7 @@ export default function TutorialBanner({ dict }: { dict: Dictionary }) {
         />
         {!started && (
           <button className={s.videoPlay} onClick={startPlayback} aria-label={dict.tutorial.cta}>
-            <Play size={30} style={{ marginInlineStart: 4 }} />
+            <Play />
           </button>
         )}
       </div>
