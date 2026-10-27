@@ -19,7 +19,11 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     description: dict.meta.description,
     alternates: {
       canonical,
-      languages: { en: siteUrl("/en/"), fa: siteUrl("/fa/") },
+      languages: {
+        en: siteUrl("/en/"),
+        fa: siteUrl("/fa/"),
+        "x-default": siteUrl("/en/"),
+      },
     },
     openGraph: {
       title: dict.meta.title,
@@ -27,7 +31,14 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       url: canonical,
       siteName: "ReadLynx",
       type: "website",
-      images: [siteUrl("/readlynx-total-poster.jpg")],
+      locale: lang === "fa" ? "fa_IR" : "en_US",
+      alternateLocale: lang === "fa" ? "en_US" : "fa_IR",
+      images: [
+        {
+          url: siteUrl("/readlynx-total-poster.jpg"),
+          alt: lang === "fa" ? "ریدلینکس در حال ترجمه یک کتاب PDF" : "ReadLynx translating a PDF book",
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
@@ -42,17 +53,47 @@ export default async function LangPage({ params }: { params: Promise<{ lang: str
   const { lang: raw } = await params;
   const lang: Lang = raw === "fa" ? "fa" : "en";
   const dict = getDict(lang);
+  const fa = lang === "fa";
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: "ReadLynx",
-    applicationCategory: "UtilitiesApplication",
-    operatingSystem: "Windows, macOS, Linux",
-    description: dict.meta.description,
-    url: siteUrl(`/${lang}/`),
-    downloadUrl: `${SITE.appRepo}/releases/latest`,
-    image: siteUrl("/app-icon.png"),
-    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": `${siteUrl("/")}#website`,
+        name: "ReadLynx",
+        alternateName: fa ? "ریدلینکس" : undefined,
+        url: siteUrl("/"),
+        inLanguage: lang,
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": `${siteUrl(`/${lang}/`)}#app`,
+        name: "ReadLynx",
+        applicationCategory: "UtilitiesApplication",
+        operatingSystem: "Windows 10+, macOS 12+, Linux",
+        description: dict.meta.description,
+        url: siteUrl(`/${lang}/`),
+        downloadUrl: `${SITE.appRepo}/releases/latest`,
+        image: [siteUrl("/app-icon.png"), siteUrl("/readlynx-total-poster.jpg")],
+        screenshot: siteUrl("/readlynx-total-poster.jpg"),
+        featureList: dict.features.cards.map((c) => c.title),
+        keywords: fa
+          ? "ترجمه کتاب، ترجمه PDF، ترجمه EPUB، ترجمه کتاب با هوش مصنوعی، ترجمه کتاب اسکن‌شده، ترجمه رایگان کتاب"
+          : "translate PDF book, EPUB translator, book translation app, AI book translation, translate scanned PDF, keep layout",
+        isAccessibleForFree: true,
+        inLanguage: lang,
+        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: dict.faq.items.map((item) => ({
+          "@type": "Question",
+          name: item.q,
+          acceptedAnswer: { "@type": "Answer", text: item.a },
+        })),
+        inLanguage: lang,
+      },
+    ],
   };
   return (
     <>

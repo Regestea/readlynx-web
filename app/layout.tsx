@@ -3,14 +3,14 @@ import "../styles/tokens.css";
 import "../styles/globals.css";
 import ThemeProvider from "../components/ThemeProvider";
 import Background from "../components/Background";
-import { siteUrl } from "../lib/site";
+import { siteUrl, withBase } from "../lib/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl("/")),
-  title: "ReadLynx — Read anything. Translate everything.",
+  title: "Translate PDF & EPUB Books with AI — ReadLynx Free App",
   description:
-    "ReadLynx is a desktop reading + translation studio for PDF, EPUB and Markdown. Download for Windows, macOS and Linux.",
-  icons: { icon: "./app-icon.png" },
+    "Free desktop app to translate PDF, EPUB and Markdown books with AI — keeps the original layout, local OCR for scans, 77 languages. Windows, macOS & Linux.",
+  icons: { icon: withBase("/app-icon.png") },
   verification: {
     google: "oxin0bp4IQ49Dr7W2iP1QzuWNeLwEvFwRIJvYimTdb4",
   },

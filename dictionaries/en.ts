@@ -1,9 +1,9 @@
 const en = {
   dir: "ltr" as "ltr" | "rtl",
   meta: {
-    title: "ReadLynx — Read anything. Translate everything.",
+    title: "Translate PDF & EPUB Books with AI — ReadLynx Free App",
     description:
-      "ReadLynx is a desktop reading + translation studio for PDF, EPUB and Markdown. Download for Windows, macOS and Linux.",
+      "Free desktop app to translate PDF, EPUB and Markdown books with AI — keeps the original layout, local OCR for scans, 77 languages. Windows, macOS & Linux.",
   },
   nav: {
     features: "Features",
@@ -17,7 +17,7 @@ const en = {
   hero: {
     badge: "Desktop app · Windows / macOS / Linux",
     titleA: "Read anything.",
-    titleB: "Translate everything.",
+    titleB: "Translate every book.",
     sub: "ReadLynx keeps your book layout while translating PDF, EPUB and Markdown with AI — OCR or Vision, 77 languages, page-range control, offline-first library.",
     ctaPrimary: "Download latest",
     ctaSecondary: "See how translation works",
@@ -95,6 +95,8 @@ const en = {
       { q: "Where are my keys and books stored?", a: "Locally in SQLite on your device. The site never sees them. AI calls go from the Electron main process to your provider." },
       { q: "Which formats are supported?", a: "Import/read: PDF, EPUB, Markdown. Export from the editor: PDF, DOCX, HTML, EPUB 3." },
       { q: "Why two PDF modes?", a: "OCR is fast and cheap for text pages. Vision understands images, figures and messy layouts but costs more." },
+      { q: "Can ReadLynx translate scanned PDF books?", a: "Yes — the built-in Tesseract OCR runs on your device, extracts the text from scanned pages and AI translates it. Nothing is uploaded." },
+      { q: "Does translating a PDF keep the original layout?", a: "Yes — ReadLynx preserves the page structure: tables, code blocks and figure positions survive translation, so the translated book reads like the original." },
       { q: "How do I verify downloads?", a: "Compare your file against SHA256SUMS.txt published on the same release page." },
     ] as { q: string; a: string }[],
   },
