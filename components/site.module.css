@@ -354,43 +354,6 @@
   background: transparent;
 }
 
-.videoPlay {
-  position: absolute;
-  /* longhands instead of `inset` — older mobile browsers don't support the shorthand */
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  /* scales down on small screens instead of a fixed 84px */
-  width: clamp(56px, 14vw, 84px);
-  height: clamp(56px, 14vw, 84px);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  cursor: pointer;
-  touch-action: manipulation;
-  background: rgb(255 255 255 / 14%);
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
-  color: #fff;
-  transition: var(--transition-base);
-}
-
-/* icon scales with the button */
-.videoPlay svg {
-  width: 38%;
-  height: 38%;
-  margin-inline-start: 5%;
-}
-
-.videoPlay:hover {
-  transform: scale(1.06);
-  background: rgb(255 255 255 / 24%);
-}
-
 .footer {
   padding: var(--space-6);
   display: flex;
